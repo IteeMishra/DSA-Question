@@ -1,1 +1,18 @@
+//PROGRAM TO FIND SUM TILL N NUMBERS //
 
+#include <iostream>
+using namespace std; 
+int printfn (int n ){
+    if(n==0)
+    return 0;
+    else
+    return n+printfn(n-1);
+}
+int main() {
+    int n;
+    cin>>n;
+   int sum =printfn(n);
+   cout<<sum;
+   
+    return 0;
+}
