@@ -16,3 +16,157 @@ int main() {
    
     return 0;
 }
+
+******************************************************************************************************************************************************************************
+// PROGRAM TO FIND FACTORIAL OF N //
+
+#include <iostream>
+using namespace std; 
+long long int factor (int n){
+    if(n==1 || n==0)
+    return 1; 
+    return n*factor(n-1);
+}
+int main() {
+    int n;
+    cin>>n;
+    cout<<factor(n);
+    return 0;
+}
+*****************************************************************************************************************************************************************************
+
+//PROGRAM TO FIND 2^N //
+
+#include<iostream>
+using namespace std; 
+int tworaise(int n){
+if(n==0)
+return 1; 
+int res=tworaise(n-1);
+int result = 2*res; 
+return result;
+}
+
+int main(){
+int n ;
+cin>>n;
+int answer=tworaise(n);
+cout<<answer;
+return 0;
+}
+
+*************************************************************************************************************************************************************************8
+//PRORAM TO FIND FIBONACCI OF N 
+
+#include<iostream>
+using namespace std; 
+int fibonacci(int a, int b, int n){
+    if(n==0)
+    return 0;
+    else 
+    {
+        cout<<a<<"  ";
+        int c=a+b;
+        a=b;
+        b=c;
+       return fibonacci(a,b,n-1);
+    }
+}
+int main(){
+    int n;
+    cin>>n;
+    int a=0,b=1;
+    fibonacci(a,b,n);
+return 0;
+}
+****************************************************************************************************************************************************************************
+
+//PROGRAM TO COUNT THE NUMBER OF WAYS IN WHICH ONE CAN REACH TO Nth STAIR PROVIDED HE CAN COVER EITHER 1 OR 2 STAIRS AT A TIME 
+
+(HINT : The no. of ways to reach to Nth stair is the sum of no. of ways to reach (N-1)th and (N-2)th stair)
+i.e. 
+No. of ways to reach Nth stair= f(N-1)+f(N-2)
+here in base case we have for ---> N=1 (no. of ways is 1)
+& N=2 (no. of ways =2)
+
+#include<iostream>
+using namespace std;
+
+int stair(int n)
+{
+if(n==1 || n==2)
+return n;
+
+int way1=stair(n-1);
+int way2=stair(n-2);
+int res=way1+way2;            //Remember this is very similar to fibonacci only the base case has changed
+return res;
+}
+
+int main(){
+int n;
+cin>>n;
+int result=stair(n);
+cout<<"No. of ways="<<result;
+return 0;
+}
+
+************************************************************************************************************************************************************
+//PRORAM TO CHECK IF A GIVEN STRING IS PALLINDROMIC OR NOT 
+(HINT:
+we will take 2 variables one for starting indexing of string and one for ending index of string )
+
+And we will check from start and end if the 2 characters are same or not 
+we will increment start index & decrement end index after every pass test 
+BASE CASE : if (start>=end) we have to stop AND THIS TELLS THAT WE HAVE A PALLINDROMIC STRING
+
+#include<iostream>
+using namespace std;
+int pallin(string str , int start , int end )
+{
+if(str[start]!=str[end])
+{
+return 0;
+}
+else if(str[start]== str[end])
+{
+start++;
+end--;
+pallin(str,start,end);
+}
+else if(start>=end)
+return 1;
+}
+
+int main(){
+string str;
+cin>>str;
+int res=pallin(str, 0, str.length()-1 );
+if(res==1)
+cout<<"Yes it is pallindromic";
+else
+cout<<"Not pallindromic";
+return 0;
+}
+***************************************************************************************************************************************************************************
+//PROGRAM TO REVERSE A STRING 
+
+#include<iostream>
+using namespace std;
+string reverse(string str,string str2,int n)
+{
+if(n < 0)  ////BECAUSE WE HAVE TO REVERSE THE CHARACTER AT 0th INDEX AS WELL
+return 0;
+char c=str[n];
+str2=str2+c;
+return reverse(str,str2,n-1);
+}
+int main(){
+string str;
+cin>>str;
+string str2="";
+int n=str.length();
+str= reverse(str,str2,n);
+return 0;
+}
+*****************************************************************************************************************************************************************************
