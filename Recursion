@@ -169,4 +169,22 @@ int n=str.length();
 str= reverse(str,str2,n);
 return 0;
 }
-*****************************************************************************************************************************************************************************
+*************************************************************    SUBSEQUENCES    ****************************************************************************************************************
+A subsequence can either be contiguous or non -contiguous follows the order . 
+example arr={1,2,3,4,5}
+
+{1,2,3}  {1}  1,4}  --> all these are subsequences        (AN EMPTY SET { } IS ALSO A SUBSEQUENCE )
+{3,1} is not a subsequence since it does not have a order .
+
+(ALL SUBARRAYS ARE SUBSEQUENCE . SUBARRAYS ARE CONTIGUOUS ONLY.)
+
+
+
+
+
+
+
+
+
+
+
