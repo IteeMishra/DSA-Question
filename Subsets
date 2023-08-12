@@ -1,0 +1,42 @@
+//PROGRAM TO PRINT ALL SUBSETS OF AN ARRAY 
+ 
+ 
+ #include<bits/stdc++.h>
+using namespace std;
+class itee{
+    public:
+    vector<vector<int>> ans;                                             //GLOBAL VARIABLE TO STORE ALL SUBSETS
+    void helper(vector<int> vec1, vector<int> temp, int index)            // GAMER FUNCTION
+    {
+        if(vec1.size()==index){
+            ans.push_back(temp);
+            return ;
+        
+        }
+        temp.push_back(vec1[index]);                               //TAKE
+        helper(vec1, temp ,index+1);
+        temp.pop_back();                                          //NOT TAKE
+        helper(vec1, temp, index+1);
+        return;                                                    //RETURNS TO PREVIOUS FUNCTIONS OR ABOVE NODE IN RECURSIVE TREE
+    }
+    vector<vector<int>> subsets(vector<int > &vec1){
+        vector<int>temp;
+        helper(vec1, temp, 0);
+        return ans;
+    }
+};
+int main(){
+    vector<int> vec1={1,2,3,4};
+  itee obj;     
+  vector<vector<int>> cat=obj.subsets(vec1);                         // ACCESSING 'ans '  IN main() USING OBJECT OF CLASS 'itee'
+   sort(cat.begin(),cat.end());
+  for(int i=0;i<cat.size();i++){
+      for(int j=0;j<cat[i].size();j++){
+          cout<<cat[i][j]<<" ";
+      }
+      cout<<endl;
+      
+  }
+ 
+    return 0;
+}
